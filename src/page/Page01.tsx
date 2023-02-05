@@ -8,7 +8,7 @@ import Tooltip from "@mui/material/Tooltip";
 
 const baseURL = "http://localhost:3000/";
 
-function Page01() {
+export default function Page01() {
   const [text, setText] = useState("");
   const textChange = (e: string) => {
     setText(e);
@@ -16,9 +16,14 @@ function Page01() {
 
   const [apiValue, setApiValue] = useState("");
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
-      setApiValue(response.data);
-    });
+    axios
+      .get(baseURL)
+      .then((response) => {
+        setApiValue(response.data);
+      })
+      .catch(() => {
+        setApiValue("APIつながってないです");
+      });
   }, []);
 
   return (
@@ -39,4 +44,4 @@ function Page01() {
   );
 }
 
-export default Page01;
+//export default Page01;
