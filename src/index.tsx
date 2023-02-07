@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./page/App";
 import Page01 from "./page/Page01";
 import Page02 from "./page/Page02";
+import OpenAITest from "./page/OpenAITest";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(
@@ -11,7 +12,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <Page02 />
+    <OpenAITest />
   </React.StrictMode>
 );
 
