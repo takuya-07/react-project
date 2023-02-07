@@ -16,14 +16,17 @@ export default function Page01() {
 
   const [apiValue, setApiValue] = useState("");
   useEffect(() => {
-    axios
-      .get(baseURL)
-      .then((response) => {
-        setApiValue(response.data);
-      })
-      .catch(() => {
-        setApiValue("APIつながってないです");
-      });
+    (async () => {
+      await axios
+        .get(baseURL)
+        .then((response) => {
+          console.log(response.data);
+          setApiValue(response.data.id);
+        })
+        .catch(() => {
+          setApiValue("APIつながってないです");
+        });
+    })();
   }, []);
 
   return (
